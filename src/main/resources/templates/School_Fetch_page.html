@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School College Data</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Color alternates rows */
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <h2>School College Data</h2>
+    <form action="School_Fetch_page" method="post">
+        <table>
+        <thead>
+            <tr>
+                <th>Rollno</th>
+                <th>Fullname</th>
+                <th>Emailid</th>
+                <th>District</th>
+                <th>Contact</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Iterate over a collection of DE objects -->
+            <tr th:each="sc : ${school}">
+                <td th:text="${sc.Rollno}"></td>
+                <td th:text="${sc.Fullname}"></td>
+                <td th:text="${sc.Emailid}"></td>
+                <td th:text="${sc.District}"></td>
+                <td th:text="${sc.contact}"></td>
+            </tr>
+            </tbody>
+        </table>
+       
+    </form>
+</body>
+</html>
